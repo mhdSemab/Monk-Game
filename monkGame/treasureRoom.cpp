@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "treasureRoom.h"
-using namespace std;
-void treasureRoom::enter()
-{
-	cout << "You've entered a treasure room!" << endl;
+#include <iostream>
+
+void TreasureRoom::enter() {
+    std::cout << "You have entered a treasure room!" << std::endl;
+    // Implement treasure collection logic here
 }

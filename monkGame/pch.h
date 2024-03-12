@@ -8,6 +8,10 @@
 #define PCH_H
 #include <iostream>
 #include <string>
+#include <vector>
+#include <random>
+#include <algorithm>
+
 using namespace std;
 
 // add headers that you want to pre-compile here

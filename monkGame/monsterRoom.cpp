@@ -1,7 +1,8 @@
 #include "pch.h"
 #include "monsterRoom.h"
+#include <iostream>
 
-void monsterRoom::enter()
-{
-	std::cout << "You've entered a room with a monster!" << std::endl;
+void MonsterRoom::enter() {
+    std::cout << "You have entered a monster room!" << std::endl;
+    // Implement monster encounter logic here
 }

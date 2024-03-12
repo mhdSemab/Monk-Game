@@ -1,13 +1,14 @@
 #pragma once
 
-#ifndef MONSTERROOM_H
-#define MONSTERROOM_H
+#ifndef MONSTER_ROOM_H
+#define MONSTER_ROOM_H
 
 #include "room.h"
 
-class monsterRoom : public room {
+class MonsterRoom : public Room {
 public:
     void enter() override;
 };
 
-#endif // MONSTERROOM_H
+#endif // MONSTER_ROOM_H
+

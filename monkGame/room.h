@@ -1,11 +1,11 @@
 #pragma once
 
 #ifndef ROOM_H
-#define RROM_H
+#define ROOM_H
 
 #include <iostream>
 
-class room {
+class Room {
 public:
 	virtual void enter() = 0;
 };

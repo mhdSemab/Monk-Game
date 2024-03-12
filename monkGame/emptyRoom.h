@@ -2,12 +2,12 @@
 #ifndef EMPTY_ROOM_H
 #define EMPTY_ROOM_H
 
-#include <iostream>
 #include "room.h"
 
-class emptyRoom : public room{
+class EmptyRoom : public Room {
 public:
-
-	void enter() override;
+    void enter() override;
 };
-#endif // !EMPTY_ROOM_H
+
+#endif // EMPTY_ROOM_H
+

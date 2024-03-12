@@ -1,13 +1,13 @@
 #pragma once
 
-#ifndef TREASUREROOM_H
-#define TREASUREROOM_H
+#ifndef TREASURE_ROOM_H
+#define TREASURE_ROOM_H
 
 #include "room.h"
 
-class treasureRoom : public room {
+class TreasureRoom : public Room {
 public:
     void enter() override;
 };
 
-#endif // TREASUREROOM_H
+#endif // TREASURE_ROOM_H
