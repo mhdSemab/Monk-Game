@@ -7,7 +7,9 @@
 
 class TreasureRoom : public Room {
 public:
-    void enter() override;
+    void enter(player& Player) override;
+
+    void displayRoomInfo() const override;
 };
 
 #endif // TREASURE_ROOM_H

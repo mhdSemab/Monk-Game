@@ -1,9 +1,6 @@
-﻿  pch.cpp
-  emptyRoom.cpp
+﻿  emptyRoom.cpp
   monkGame.cpp
-  monster.cpp
   monsterRoom.cpp
-  player.cpp
   roomGenerator.cpp
   treasureRoom.cpp
   Generating Code...

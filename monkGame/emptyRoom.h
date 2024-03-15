@@ -6,7 +6,9 @@
 
 class EmptyRoom : public Room {
 public:
-    void enter() override;
+    void enter(player& Player) override;
+
+    void displayRoomInfo() const override;
 };
 
 #endif // EMPTY_ROOM_H

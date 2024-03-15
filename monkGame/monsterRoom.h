@@ -7,7 +7,9 @@
 
 class MonsterRoom : public Room {
 public:
-    void enter() override;
+    void enter(player& Player) override;
+
+    void displayRoomInfo() const override;
 };
 
 #endif // MONSTER_ROOM_H

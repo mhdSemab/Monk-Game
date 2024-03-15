@@ -7,7 +7,11 @@
 #include "monsterRoom.h"
 #include "treasureRoom.h"
 #include "roomGenerator.h"
+#include "player.h"
+#include "monster.h"
+#include <string>
 
+using namespace std;
 
 int main()
 {
@@ -22,10 +26,28 @@ int main()
     //monRoom.enter();
     //teaRoom.enter();
 
+    cout << "Enter the player's name: ";
+    string playerName;
+    getline(cin, playerName);
+
+    cout << "Give a description of the player: ";
+    string playerDesc;
+    getline(cin, playerDesc);
+
+    player Player(playerName, playerDesc, 15, 3);
+
     vector<Room*> rooms = generateRooms(2, 1, 1);
 
     for (Room* room : rooms) {
-        room->enter();
+        Player.display();
+        room->displayRoomInfo();
+
+        room->enter(Player);
+
+        //if (!Player.isAlive()) {
+        //    cout << "Game over!" << endl;
+        //    break;
+        //}
     }
 
     for (Room* room : rooms) {
