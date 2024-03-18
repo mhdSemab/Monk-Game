@@ -34,7 +34,7 @@ int main()
     string playerDesc;
     getline(cin, playerDesc);
 
-    player Player(playerName, playerDesc, 15, 3);
+    player Player(playerDesc, playerName, 15, 3);
 
     vector<Room*> rooms = generateRooms(2, 1, 1);
 
