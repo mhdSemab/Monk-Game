@@ -10,6 +10,8 @@
 #include "player.h"
 #include "monster.h"
 #include <string>
+#include <thread>
+#include <chrono>
 
 using namespace std;
 
@@ -36,18 +38,16 @@ int main()
 
     player Player(playerDesc, playerName, 15, 3);
 
-    vector<Room*> rooms = generateRooms(2, 1, 1);
+    vector<Room*> rooms = generateRooms(3, 2, 1);
+    Player.display();
 
+    
     for (Room* room : rooms) {
-        Player.display();
-        room->displayRoomInfo();
 
         room->enter(Player);
 
-        //if (!Player.isAlive()) {
-        //    cout << "Game over!" << endl;
-        //    break;
-        //}
+
+        this_thread::sleep_for(std::chrono::seconds(3));
     }
 
     for (Room* room : rooms) {

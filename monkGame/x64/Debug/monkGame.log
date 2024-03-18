@@ -1,10 +1,2 @@
-﻿  pch.cpp
-  emptyRoom.cpp
-  monkGame.cpp
-  monster.cpp
-  monsterRoom.cpp
-  player.cpp
-  roomGenerator.cpp
-  treasureRoom.cpp
-  Generating Code...
+﻿  treasureRoom.cpp
   monkGame.vcxproj -> C:\Users\u2258134\Downloads\game\x64\Debug\monkGame.exe
