@@ -15,16 +15,6 @@ using namespace std;
 
 int main()
 {
-    //cout << "Hello World!\n";
-
-    //emptyRoom empRoom;
-    //monsterRoom monRoom;
-    //treasureRoom teaRoom;
-
-    ////entering each room
-    //empRoom.enter();
-    //monRoom.enter();
-    //teaRoom.enter();
 
     cout << "Enter the player's name: ";
     string playerName;
@@ -44,10 +34,6 @@ int main()
 
         room->enter(Player);
 
-        //if (!Player.isAlive()) {
-        //    cout << "Game over!" << endl;
-        //    break;
-        //}
     }
 
     for (Room* room : rooms) {
