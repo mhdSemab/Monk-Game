@@ -12,11 +12,31 @@
 #include <string>
 #include <thread>
 #include <chrono>
-
+#include <cstdlib>
+#include <windows.h>
 using namespace std;
 
 int main()
 {
+    HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+    SetConsoleTextAttribute(hConsole, 6);
+    system("cls");
+
+    cout << " __   __  _______  __    _  ___   _    _______  _______  __   __  _______\n";
+    cout << "|  |_|  ||       ||  |  | ||   | | |  |       ||   _   ||  |_|  ||       |\n";
+    cout << "|       ||   _   ||   |_| ||   |_| |  |    ___||  |_|  ||       ||    ___|\n";
+    cout << "|       ||  | |  ||       ||      _|  |   | __ |       ||       ||   |___ \n";
+    cout << "|       ||  |_|  ||  _    ||     |_   |   ||  ||       ||       ||    ___|\n";
+    cout << "| ||_|| ||       || | |   ||    _  |  |   |_| ||   _   || ||_|| ||   |_\n";
+    cout << "|_|   |_||_______||_|  |__||___| |_|  |_______||__| |__||_|   |_||_______|\n";
+    cout << "\n";
+
+
+
+    SetConsoleTextAttribute(hConsole, 7);
+    cout << "\n" << endl;
+    cout << "Welcome to the Monk Game!" << endl;
+    this_thread::sleep_for(chrono::seconds(2));
 
     cout << "Enter the player's name: ";
     string playerName;
