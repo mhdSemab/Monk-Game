@@ -136,6 +136,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="emptyRoom.cpp" />
+    <ClCompile Include="entity.cpp" />
     <ClCompile Include="monkGame.cpp" />
     <ClCompile Include="monster.cpp" />
     <ClCompile Include="monsterRoom.cpp" />
@@ -146,11 +147,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="room.cpp" />
     <ClCompile Include="roomGenerator.cpp" />
     <ClCompile Include="treasureRoom.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="emptyRoom.h" />
+    <ClInclude Include="entity.h" />
     <ClInclude Include="monster.h" />
     <ClInclude Include="monsterRoom.h" />
     <ClInclude Include="pch.h" />

@@ -6,28 +6,22 @@
 #include <string>
 using namespace std;
 
-class monster{
+#include "entity.h"
+#include <iostream>
+#include <string>
+
+class Monster : public Entity {
 private:
-	string monsterName;
-	int healthPoints;
-	int attackPoints;
+    int attackPoints;
 
 public:
-	monster(string name, int health, int attack);
+    Monster(const std::string& name, int health, int attack);
 
-	string getName();
+    int getAttackPoints() const;
+    void setAttackPoints(int attack);
 
-	int getHealthPoints();
-	
-	int getAttackPoints();
-	
-	void setHealthPoints(int health);
-	
-	void setAttackPoints(int attack);
-
-	void display();
-
+    void attack(Entity& target) override;
+    void display() const;
 };
-
 
 #endif // !MONSTER_H

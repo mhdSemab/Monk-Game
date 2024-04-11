@@ -2,20 +2,27 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include "monster.h"
+#include "entity.h"
 #include <string>
+
 using namespace std;
 
-class player : public monster {
+class Player : public Entity {
 private:
-	string description;
+    string description;
 
 public:
-	player(string playerDescription, string playerName, int health, int attack);
+    Player(const string& playerDescription, const string& playerName, int health, int attack);
 
-	string getDescription();
+    string getDescription() const;
 
-	void display(); 
+    void display() const;
+
+    void attack(Entity& target) override;
+
+    void takeDamage(int damage) override;
+
+    bool isAlive() const override;
 };
 
 #endif // !PLAYER_H

@@ -6,7 +6,7 @@
 #include <cstdlib>
 #include <windows.h>
 
-void TreasureRoom::enter(player& Player) {
+void TreasureRoom::enter(Entity& entity) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, 14);
     system("cls");

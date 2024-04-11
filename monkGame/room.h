@@ -4,11 +4,12 @@
 #define ROOM_H
 
 #include <iostream>
-#include "player.h"
+#include "entity.h"
 
 class Room {
 public:
-	virtual void enter(player& Player) = 0;
-	virtual void displayRoomInfo() const = 0;
+    virtual void enter(Entity& entity) = 0;
+    virtual void displayRoomInfo() const = 0;
 };
+
 #endif // !ROOM_H

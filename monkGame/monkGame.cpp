@@ -1,6 +1,3 @@
-// monkGame.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include "pch.h"
 #include <iostream>
 #include "emptyRoom.h"
@@ -14,6 +11,7 @@
 #include <chrono>
 #include <cstdlib>
 #include <windows.h>
+
 using namespace std;
 
 int main()
@@ -31,8 +29,6 @@ int main()
     cout << "|_|   |_||_______||_|  |__||___| |_|  |_______||__| |__||_|   |_||_______|\n";
     cout << "\n";
 
-
-
     SetConsoleTextAttribute(hConsole, 7);
     cout << "\n" << endl;
     cout << "Welcome to the Monk Game!" << endl;
@@ -46,24 +42,19 @@ int main()
     string playerDesc;
     getline(cin, playerDesc);
 
-    player Player(playerDesc, playerName, 15, 3);
+    Player Player(playerDesc, playerName, 15, 3);
 
     vector<Room*> rooms = generateRooms(3, 2, 1);
-    Player.display();
 
-    
     for (Room* room : rooms) {
-
+        room->displayRoomInfo();
         room->enter(Player);
-
-
-        this_thread::sleep_for(std::chrono::seconds(3));
+        this_thread::sleep_for(chrono::seconds(3));
     }
 
     for (Room* room : rooms) {
         delete room;
     }
+
     return 0;
-
 }
-

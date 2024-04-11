@@ -1,37 +1,26 @@
 #include "pch.h"
 #include "monster.h"
 
-// Constructor implementation
-monster::monster(std::string name, int health, int attack) : monsterName(name), healthPoints(health), attackPoints(attack) {}
+using namespace std;
 
-string monster::getName()
-{
-    return monsterName;
-}
+Monster::Monster(const string& name, int health, int attack)
+    : Entity(name, health, attack), attackPoints(attack) {}
 
-// Function to get monster health points
-int monster::getHealthPoints() {
-    return healthPoints;
-}
-
-// Function to get monster attack points
-int monster::getAttackPoints() {
+int Monster::getAttackPoints() const {
     return attackPoints;
 }
 
-// Function to set monster health points
-void monster::setHealthPoints(int health) {
-    healthPoints = health;
-}
-
-// Function to set monster attack points
-void monster::setAttackPoints(int attack) {
+void Monster::setAttackPoints(int attack) {
     attackPoints = attack;
 }
 
-// Function to display monster information
-void monster::display() {
-    std::cout << "Description: " << monsterName << std::endl;
-    std::cout << "Health Points: " << healthPoints << std::endl;
-    std::cout << "Attack Points: " << attackPoints << std::endl;
+void Monster::attack(Entity& target) {
+    cout << getName() << " attacks " << target.getName() << " with " << attackPoints << " attack points!" << endl;
+    target.takeDamage(attackPoints);
+}
+
+void Monster::display() const {
+    cout << "Monster Name: " << getName() << endl;
+    cout << "Health Points: " << getHealth() << endl;
+    cout << "Attack Points: " << attackPoints << endl;
 }

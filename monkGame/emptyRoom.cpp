@@ -6,7 +6,7 @@
 #include <chrono>
 #include <thread>
 
-void EmptyRoom::enter(player& Player) {
+void EmptyRoom::enter(Entity& entity) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, 5);
     system("cls");

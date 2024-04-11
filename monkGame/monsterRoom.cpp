@@ -6,7 +6,7 @@
 #include <chrono>
 #include <Windows.h>
 
-void MonsterRoom::enter(player& Player) {
+void MonsterRoom::enter(Entity& entity) {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, 5);
     system("cls");
