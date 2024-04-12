@@ -6,6 +6,7 @@
 #include <iostream>
 #include "entity.h"
 
+
 class Room {
 public:
     virtual void enter(Entity& entity) = 0;

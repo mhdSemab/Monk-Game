@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "player.h"
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -16,11 +17,6 @@ void Player::display() const {
     cout << "Description: " << description << endl;
     cout << "Health Points: " << getHealth() << endl;
     cout << "Attack Points: " << getAttack() << endl;
-}
-
-void Player::attack(Entity& target) {
-    cout << getName() << " attacks " << target.getName() << " with " << getAttack() << " attack points!" << endl;
-    target.takeDamage(getAttack());
 }
 
 void Player::takeDamage(int damage) {

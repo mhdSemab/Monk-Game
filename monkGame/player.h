@@ -18,9 +18,8 @@ public:
 
     void display() const;
 
-    void attack(Entity& target) override;
-
     void takeDamage(int damage) override;
+
 
     bool isAlive() const override;
 };

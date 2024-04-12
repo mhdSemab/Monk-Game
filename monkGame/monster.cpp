@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "monster.h"
+#include <cstdlib>
 
 using namespace std;
 
@@ -14,10 +15,6 @@ void Monster::setAttackPoints(int attack) {
     attackPoints = attack;
 }
 
-void Monster::attack(Entity& target) {
-    cout << getName() << " attacks " << target.getName() << " with " << attackPoints << " attack points!" << endl;
-    target.takeDamage(attackPoints);
-}
 
 void Monster::display() const {
     cout << "Monster Name: " << getName() << endl;

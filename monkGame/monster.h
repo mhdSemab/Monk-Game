@@ -15,12 +15,11 @@ private:
     int attackPoints;
 
 public:
-    Monster(const std::string& name, int health, int attack);
+    Monster(const string& name, int health, int attack);
 
     int getAttackPoints() const;
     void setAttackPoints(int attack);
 
-    void attack(Entity& target) override;
     void display() const;
 };
 

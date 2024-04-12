@@ -19,9 +19,11 @@ public:
     int getHealth() const;
     int getAttack() const;
 
-    virtual void attack(Entity& target) = 0;
+    void attack(Entity& target) const;
+    void defend();
     virtual void takeDamage(int damage);
     virtual bool isAlive() const;
+    bool isSuccessful() const;
 };
 
 #endif // ENTITY_H

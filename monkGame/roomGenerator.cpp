@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "roomGenerator.h"
+#include "player.h"
+#include "monster.h"
 #include <random>
 #include <algorithm>
 
@@ -12,6 +14,9 @@ vector<Room*> generateRooms(int numEmptyRooms, int numMonsterRooms, int numTreas
     mt19937 gen(rd());
     uniform_int_distribution<> dis(1, 3);
 
+    Player player("Works", "Player", 20, 5);
+    Monster monster("Monster", 15, 3);
+
     //generating empty rooms
     for (int i = 0; i < numEmptyRooms; ++i) {
         rooms.push_back(new EmptyRoom());
@@ -19,7 +24,7 @@ vector<Room*> generateRooms(int numEmptyRooms, int numMonsterRooms, int numTreas
 
     //genrating monster room
     for (int i = 0; i < numMonsterRooms; ++i) {
-        rooms.push_back(new MonsterRoom());
+        rooms.push_back(new MonsterRoom(player, monster));
     }
 
     //generating a treasure room
