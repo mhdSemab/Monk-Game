@@ -7,6 +7,17 @@
 #include <windows.h>
 
 void TreasureRoom::enter(Entity& entity) {
+    displayRoomInfo();
+    std::cout << "Ending the game now... Goodbye!" << std::endl;
+    std::this_thread::sleep_for(chrono::seconds(2));
+
+    exit(0);
+
+}
+
+
+void TreasureRoom::displayRoomInfo() const
+{
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, 14);
     system("cls");
@@ -20,18 +31,10 @@ void TreasureRoom::enter(Entity& entity) {
     std::cout << "  |___|  |___|  |_||_______||__| |__||_______||_______||___|  |_||_______|  |___|  |_||_______||_______||_|   |_|\n";
 
     std::cout << "\n";
-    
+
     SetConsoleTextAttribute(hConsole, 7);
     std::cout << "\n" << std::endl;
     std::cout << "You have entered a treasure room!" << std::endl;
     std::cout << "You have won the game!" << std::endl;
     std::this_thread::sleep_for(chrono::seconds(2));
-    exit(0);
-    // Implement treasure collection logic here
-}
-
-
-void TreasureRoom::displayRoomInfo() const
-{
-    std::cout << "You have entered the treasure room! You win!" << std::endl;
 }

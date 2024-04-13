@@ -7,6 +7,40 @@
 #include <thread>
 
 void EmptyRoom::enter(Entity& entity) {
+    entity.setHealth(9);
+    displayRoomInfo();
+    
+    if (entity.getHealth() != 15) {
+        std::cout << entity.getName() << "'s heath is not full..." << std::endl;
+        std::this_thread::sleep_for(chrono::seconds(3));
+        std::cout << "Choose your action (1: Pray to get back to full health, Any other number: Move onto next room): ";
+        int action;
+        int tempHealth;
+        std::cin >> action;
+
+        if (action == 1) {
+            while (entity.getHealth() != 15) {
+                tempHealth = entity.getHealth() + 1;
+                entity.setHealth(tempHealth);
+                std::cout << entity.getName() << " is praying. Health increased to " << entity.getHealth() << std::endl;
+                std::this_thread::sleep_for(chrono::seconds(3));
+            }
+        }
+
+        else {
+            std::cout << "Moving you to the next room..." << std::endl;
+            std::this_thread::sleep_for(chrono::seconds(3));
+        }
+    }
+
+    else {
+        std::cout << entity.getName() << "'s heath is full! Moving you to the next room..." << std::endl;
+        std::this_thread::sleep_for(chrono::seconds(3));
+    }
+    
+}
+
+void EmptyRoom::displayRoomInfo() const {
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     SetConsoleTextAttribute(hConsole, 5);
     system("cls");
@@ -25,9 +59,4 @@ void EmptyRoom::enter(Entity& entity) {
     std::cout << "You have entered an empty room!" << std::endl;
     // Implement any specific logic for empty rooms here
     std::this_thread::sleep_for(chrono::seconds(2));
-    
-}
-
-void EmptyRoom::displayRoomInfo() const {
-    std::cout << "You have entered an empty room!" << std::endl;
 }

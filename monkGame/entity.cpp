@@ -20,6 +20,19 @@ int Entity::getAttack() const {
     return entityAttack;
 }
 
+int Entity::setHealth(int newHealth)
+{
+    entityHealth = newHealth;
+    return 0;
+}
+
+int Entity::setAttack(int newAttack)
+{
+    entityAttack = newAttack;
+    return 0;
+}
+
+
 void Entity::takeDamage(int damage) {
     entityHealth -= damage;
     if (entityHealth < 0) {

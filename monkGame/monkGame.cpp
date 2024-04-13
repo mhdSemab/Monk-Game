@@ -47,7 +47,6 @@ int main()
     vector<Room*> rooms = generateRooms(3, 2, 1);
 
     for (Room* room : rooms) {
-        room->displayRoomInfo();
         room->enter(Player);
         this_thread::sleep_for(chrono::seconds(3));
     }
