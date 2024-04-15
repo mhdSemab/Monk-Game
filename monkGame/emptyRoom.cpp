@@ -7,11 +7,11 @@
 #include <thread>
 
 void EmptyRoom::enter(Entity& entity) {
-    entity.setHealth(9);
+    //entity.setHealth(9);
     displayRoomInfo();
     
     if (entity.getHealth() != 15) {
-        std::cout << entity.getName() << "'s heath is not full..." << std::endl;
+        std::cout << entity.getName() << "'s health is not full..." << std::endl;
         std::this_thread::sleep_for(chrono::seconds(3));
         std::cout << "Choose your action (1: Pray to get back to full health, Any other number: Move onto next room): ";
         int action;
@@ -25,6 +25,10 @@ void EmptyRoom::enter(Entity& entity) {
                 std::cout << entity.getName() << " is praying. Health increased to " << entity.getHealth() << std::endl;
                 std::this_thread::sleep_for(chrono::seconds(3));
             }
+            std::cout << "You have reached max health." << std::endl;
+            std::this_thread::sleep_for(chrono::seconds(3));
+            std::cout << "Moving you to the next room..." << std::endl;
+            std::this_thread::sleep_for(chrono::seconds(3));
         }
 
         else {
@@ -34,7 +38,7 @@ void EmptyRoom::enter(Entity& entity) {
     }
 
     else {
-        std::cout << entity.getName() << "'s heath is full! Moving you to the next room..." << std::endl;
+        std::cout << entity.getName() << "'s health is full! Moving you to the next room..." << std::endl;
         std::this_thread::sleep_for(chrono::seconds(3));
     }
     

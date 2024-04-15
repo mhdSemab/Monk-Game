@@ -1,11 +1,9 @@
+// room.h
 #pragma once
-
 #ifndef ROOM_H
 #define ROOM_H
 
-#include <iostream>
 #include "entity.h"
-
 
 class Room {
 public:
@@ -13,4 +11,4 @@ public:
     virtual void displayRoomInfo() const = 0;
 };
 
-#endif // !ROOM_H
+#endif // ROOM_H

@@ -8,8 +8,33 @@
 #include <cstdlib>
 #include <chrono>
 #include <Windows.h>
+#include <string>
 
+int MonsterRoom::getValidInput()
+{
+    std::string input;
+    int result;
 
+    // Loop until valid input is provided
+    while (true) {
+        std::cout << "It's your turn. Choose your action (1: Attack, 2: Defend): ";
+        std::getline(std::cin, input);
+
+        try {
+            // Attempt to convert the input string to an integer
+            result = std::stoi(input);
+
+            // Input is valid, return the integer
+            return result;
+        }
+        catch (const std::invalid_argument& e) {
+            std::cout << "Invalid input. Please enter an integer only." << std::endl;
+        }
+        catch (const std::out_of_range& e) {
+            std::cout << "Input out of range. Please enter a smaller integer." << std::endl;
+        }
+    }
+}
 
 void MonsterRoom::enter(Entity& entity) {
     displayRoomInfo();
@@ -27,6 +52,7 @@ void MonsterRoom::enter(Entity& entity) {
 
 
 void MonsterRoom::handleMonsterInteraction(Player& player, Monster& monster) {
+
     std::cout << "A fierce monster appears!" << std::endl;
     std::this_thread::sleep_for(std::chrono::seconds(3));
     std::cout << "It's a ..." << monster.getName() << "!" << std::endl;
@@ -45,13 +71,20 @@ void MonsterRoom::handleMonsterInteraction(Player& player, Monster& monster) {
         std::cout << player.getName() << " health is: " << player.getHealth() << std::endl;
         std::cout << monster.getName() << " health is: " << monster.getHealth() << std::endl;
         std::cout << "------------------------------------" << std::endl;
-        std::cout << "It's your turn, " << player.getName() << ". Choose your action (1: Attack, 2: Defend): ";
 
         int action;
-        std::cin >> action;
+        //std::cin >> action;
+        do {
+            action = getValidInput();
+            //std::cout << "It's your turn, " << player.getName() << ". Choose your action (1: Attack, 2: Defend): ";
+            //std::cin >> action;
+            if (action != 1 && action != 2) {
+                std::cout << "Invalid action. Please enter 1 or 2." << std::endl;
+            }
+
+        } while (action != 1 && action != 2);
 
         if (player.isSuccessful()) {
-
             if (action == 1) {
                 player.attack(monster);
                 std::this_thread::sleep_for(std::chrono::seconds(3));
@@ -68,13 +101,11 @@ void MonsterRoom::handleMonsterInteraction(Player& player, Monster& monster) {
                 break;
             }
         }
-
+        
         else {
-            std::cout << player.getName() << "'s move was unsuccessful" << std::endl;
+            std::cout << player.getName() << "'s move was unsuccessful." << std::endl;
             std::this_thread::sleep_for(std::chrono::seconds(3));
         }
-
-
 
         // Monster's turn
         if (monster.isAlive() && monster.isSuccessful()) {
@@ -90,10 +121,14 @@ void MonsterRoom::handleMonsterInteraction(Player& player, Monster& monster) {
                 monster.defend();
                 std::this_thread::sleep_for(std::chrono::seconds(3));
             }
+
+            if (player.isAlive() == 0) {
+                break;
+            }
         }
 
         else {
-            std::cout << monster.getName() << "'s move was unsuccessful" << std::endl;
+            std::cout << monster.getName() << "'s move was unsuccessful." << std::endl;
             std::this_thread::sleep_for(std::chrono::seconds(3));
         }
 
@@ -108,8 +143,11 @@ void MonsterRoom::handleMonsterInteraction(Player& player, Monster& monster) {
     else {
         std::cout << "You were defeated by the monster. Game over!" << std::endl;
         std::this_thread::sleep_for(std::chrono::seconds(3));
+        exit(0);
     }
 }
+
+
 
 
 

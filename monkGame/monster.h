@@ -4,11 +4,9 @@
 
 #include <iostream>
 #include <string>
+#include "entity.h"
 using namespace std;
 
-#include "entity.h"
-#include <iostream>
-#include <string>
 
 class Monster : public Entity {
 private:

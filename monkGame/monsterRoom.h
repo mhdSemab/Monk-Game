@@ -16,6 +16,7 @@ public:
     MonsterRoom(Player& playerRef, Monster& monsterRef) : player(playerRef), monster(monsterRef) {}
     void enter(Entity& entity) override;
     void handleMonsterInteraction(Player& player, Monster& monster);
+    int getValidInput();
     void displayRoomInfo() const override;
 };
 

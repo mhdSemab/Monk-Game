@@ -27,12 +27,12 @@ vector<Room*> generateRooms(int numEmptyRooms, int numMonsterRooms, int numTreas
         rooms.push_back(new MonsterRoom(player, monster));
     }
 
+    shuffle(rooms.begin(), rooms.end(), gen);
+
     //generating a treasure room
     for (int i = 0; i < numTreasureRooms; ++i) {
         rooms.push_back(new TreasureRoom());
     }
-
-    shuffle(rooms.begin(), rooms.end(), gen);
 
     return rooms;
 }

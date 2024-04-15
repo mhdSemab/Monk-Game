@@ -1,21 +1,21 @@
+// entity.h
 #pragma once
 #ifndef ENTITY_H
 #define ENTITY_H
 
 #include <string>
-using namespace std;
 
 class Entity {
 protected:
-    string entityName;
+    std::string entityName;
     int entityHealth;
     int entityAttack;
 
 public:
-    Entity(const string& name, int health, int attack);
+    Entity(const std::string& name, int health, int attack);
     virtual ~Entity() = default;
 
-    string getName() const;
+    std::string getName() const;
     int getHealth() const;
     int getAttack() const;
 

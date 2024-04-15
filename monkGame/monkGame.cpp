@@ -42,9 +42,10 @@ int main()
     string playerDesc;
     getline(cin, playerDesc);
 
-    Player Player(playerDesc, playerName, 15, 3);
+    Player Player(playerDesc, playerName, 15, 2);
 
     vector<Room*> rooms = generateRooms(3, 2, 1);
+
 
     for (Room* room : rooms) {
         room->enter(Player);
