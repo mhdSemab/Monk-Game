@@ -9,7 +9,7 @@
 void TreasureRoom::enter(Entity& entity) {
     displayRoomInfo();
     std::cout << "Ending the game now... Goodbye!" << std::endl;
-    std::this_thread::sleep_for(chrono::seconds(2));
+    std::this_thread::sleep_for(std::chrono::seconds(2));
 
     exit(0);
 
@@ -36,5 +36,5 @@ void TreasureRoom::displayRoomInfo() const
     std::cout << "\n" << std::endl;
     std::cout << "You have entered a treasure room!" << std::endl;
     std::cout << "You have won the game!" << std::endl;
-    std::this_thread::sleep_for(chrono::seconds(2));
+    std::this_thread::sleep_for(std::chrono::seconds(2));
 }

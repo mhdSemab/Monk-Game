@@ -2,26 +2,26 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#pragma once
+
 #include "entity.h"
 #include <string>
 
-using namespace std;
-
 class Player : public Entity {
 private:
-    string description;
+    std::string description;
 
 public:
-    Player(const string& playerDescription, const string& playerName, int health, int attack);
+    Player(const std::string& playerDescription, const std::string& playerName, int health, int attack);
 
-    string getDescription() const;
+    std::string getDescription() const;
 
     void display() const;
 
     void takeDamage(int damage) override;
 
-
     bool isAlive() const override;
 };
+
 
 #endif // !PLAYER_H

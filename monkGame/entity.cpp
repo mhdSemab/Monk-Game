@@ -3,36 +3,38 @@
 #include <iostream>
 #include <random>
 
-using namespace std;
-
-Entity::Entity(const string& name, int health, int attack)
+// Constructor for the Entity class
+Entity::Entity(const std::string& name, int health, int attack)
     : entityName(name), entityHealth(health), entityAttack(attack) {}
 
-string Entity::getName() const {
+// Getter for the entity's name
+std::string Entity::getName() const {
     return entityName;
 }
 
+// Getter for the entity's health
 int Entity::getHealth() const {
     return entityHealth;
 }
 
+// Getter for the entity's attack
 int Entity::getAttack() const {
     return entityAttack;
 }
 
-int Entity::setHealth(int newHealth)
+// Setter for the entity's health
+void Entity::setHealth(int newHealth)
 {
     entityHealth = newHealth;
-    return 0;
 }
 
-int Entity::setAttack(int newAttack)
+// Setter for the entity's attack
+void Entity::setAttack(int newAttack)
 {
     entityAttack = newAttack;
-    return 0;
 }
 
-
+// Function to handle the entity taking damage
 void Entity::takeDamage(int damage) {
     entityHealth -= damage;
     if (entityHealth < 0) {
@@ -40,29 +42,30 @@ void Entity::takeDamage(int damage) {
     }
 }
 
-void Entity::attack(Entity& target) const{
+// Function for the entity to attack a target
+void Entity::attack(Entity& target) const {
     int damage = getAttack();
     target.takeDamage(damage);
-    cout << getName() << " attacks " << target.getName() << " with " << damage << " attack points!" << endl;
-    //implement here
+    std::cout << getName() << " attacks " << target.getName() << " with " << damage << " attack points!" << std::endl;
 }
 
+// Function for the entity to defend itself
 void Entity::defend() {
     entityHealth++;
-    cout << getName() << "'s health has increased by 1." << endl;
-    //implement here
+    std::cout << getName() << "'s health has increased by 1." << std::endl;
 }
 
-
+// Function to check if the entity is alive
 bool Entity::isAlive() const {
     return entityHealth > 0;
 }
 
+// Function to check if an action is successful
 bool Entity::isSuccessful() const
 {
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_real_distribution<> dis(0, 1);
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_real_distribution<> dis(0, 1);
 
     double randomValue = dis(gen);
     return randomValue < 0.5;

@@ -7,8 +7,8 @@
 #include "monsterRoom.h"
 #include "treasureRoom.h"
 
-using namespace std;
 
-vector<Room*> generateRooms(int numEmptyRooms, int numMonsterRooms, int numTreasureRooms);
+
+std::vector<Room*> generateRooms(int numEmptyRooms, int numMonsterRooms, int numTreasureRooms);
 
 #endif // !ROOM_GENERATOR_H

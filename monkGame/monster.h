@@ -5,7 +5,6 @@
 #include <iostream>
 #include <string>
 #include "entity.h"
-using namespace std;
 
 
 class Monster : public Entity {
@@ -13,11 +12,16 @@ private:
     int attackPoints;
 
 public:
-    Monster(const string& name, int health, int attack);
+    // Constructor
+    Monster(const std::string& name, int health, int attack);
 
+    // Getter for attack points
     int getAttackPoints() const;
+
+    // Setter for attack points
     void setAttackPoints(int attack);
 
+    // Display function to show monster information
     void display() const;
 };
 

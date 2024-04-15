@@ -5,31 +5,36 @@
 #include <random>
 #include <algorithm>
 
-using namespace std;
+// Avoid using namespace std to prevent namespace pollution
 
-vector<Room*> generateRooms(int numEmptyRooms, int numMonsterRooms, int numTreasureRooms) {
-    vector<Room*> rooms;
+// Function to generate rooms based on specified numbers of empty, monster, and treasure rooms
+std::vector<Room*> generateRooms(int numEmptyRooms, int numMonsterRooms, int numTreasureRooms) {
+    std::vector<Room*> rooms;
 
-    random_device rd;
-    mt19937 gen(rd());
-    uniform_int_distribution<> dis(1, 3);
+    // Random number generation setup
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<> dis(1, 3);
 
+    // Creating player and monster instances
     Player player("Works", "Player", 20, 5);
     Monster monster("Monster", 15, 3);
 
-    //generating empty rooms
+    // Generating empty rooms
     for (int i = 0; i < numEmptyRooms; ++i) {
         rooms.push_back(new EmptyRoom());
     }
 
-    //genrating monster room
+    // Generating monster rooms
     for (int i = 0; i < numMonsterRooms; ++i) {
         rooms.push_back(new MonsterRoom(player, monster));
     }
 
-    shuffle(rooms.begin(), rooms.end(), gen);
+    // Shuffling the rooms
+    std::shuffle(rooms.begin(), rooms.end(), gen);
 
-    //generating a treasure room
+    // Generating treasure rooms
+    // Ensures treasure room is always last
     for (int i = 0; i < numTreasureRooms; ++i) {
         rooms.push_back(new TreasureRoom());
     }

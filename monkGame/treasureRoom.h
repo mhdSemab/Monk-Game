@@ -4,6 +4,7 @@
 #define TREASURE_ROOM_H
 
 #include "room.h"
+#include "entity.h"
 
 class TreasureRoom : public Room {
 public:

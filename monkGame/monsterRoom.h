@@ -19,5 +19,4 @@ public:
     int getValidInput();
     void displayRoomInfo() const override;
 };
-
 #endif // MONSTER_ROOM_H

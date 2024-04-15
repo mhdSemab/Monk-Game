@@ -3,27 +3,30 @@
 #include <iostream>
 #include <cstdlib>
 
-using namespace std;
-
-Player::Player(const string& playerDescription, const string& playerName, int health, int attack)
+// Constructor for the Player class
+Player::Player(const std::string& playerDescription, const std::string& playerName, int health, int attack)
     : Entity(playerName, health, attack), description(playerDescription) {}
 
-string Player::getDescription() const {
+// Getter for player's description
+std::string Player::getDescription() const {
     return description;
 }
 
+// Function to display player's information
 void Player::display() const {
-    cout << "Player Name: " << getName() << endl;
-    cout << "Description: " << description << endl;
-    cout << "Health Points: " << getHealth() << endl;
-    cout << "Attack Points: " << getAttack() << endl;
+    std::cout << "Player Name: " << getName() << std::endl;
+    std::cout << "Description: " << description << std::endl;
+    std::cout << "Health Points: " << getHealth() << std::endl;
+    std::cout << "Attack Points: " << getAttack() << std::endl;
 }
 
+// Function to deduct health points from the player
 void Player::takeDamage(int damage) {
     Entity::takeDamage(damage);
-    cout << getName() << " takes " << damage << " damage. Remaining health: " << getHealth() << endl;
+    std::cout << getName() << " takes " << damage << " damage. Remaining health: " << getHealth() << std::endl;
 }
 
+// Function to check if the player is alive
 bool Player::isAlive() const {
     return Entity::isAlive();
 }
